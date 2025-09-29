@@ -6,7 +6,7 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace Company.Function;
+namespace ConversorTemperatura;
 
 public class ConversaoTemperatura
 {
