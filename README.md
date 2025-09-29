@@ -42,35 +42,36 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace Company.Function;
-
-public class ConversaoTemperatura
+namespace ConversaoTemperatura
 {
-    private readonly ILogger<ConversaoTemperatura> _logger;
-
-    public ConversaoTemperatura(ILogger<ConversaoTemperatura> logger)
+    public class FunctionFahrenheitParaCelsius
     {
-        _logger = logger;
-    }
+        private readonly ILogger<FunctionFahrenheitParaCelsius> _logger;
 
-    [Function("ConversaoTemperatura")]
-    [OpenApiOperation(operationId: "Run", tags: new[] { "Conversão" })]
-    [OpenApiParameter(name: "fahrenheit", In = ParameterLocation.Path, Required = true, Type = typeof(double), Description ="O valor em **fahrenheit** para conversão em Celsius")]
-    [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "Retorna o valor em Celsius")]
-    public IActionResult Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get",
-        Route = "conversao-fahrenheit-para-celsius/{fahrenheit}")]
-        HttpRequest req, double fahrenheit)
-    {
-        _logger.LogInformation($"Parâmetro recebido: {fahrenheit}", fahrenheit);
+        public FunctionFahrenheitParaCelsius(ILogger<FunctionFahrenheitParaCelsius> logger)
+        {
+            _logger = logger;
+        }
 
-        var valorEmCelsius = (fahrenheit - 32) * 5 / 9;
+        [Function("ConversaoTemperatura")]
+        [OpenApiOperation(operationId: "Run", tags: new[] { "Conversão" })]
+        [OpenApiParameter(name: "fahrenheit", In = ParameterLocation.Path, Required = true, Type = typeof(double), Description ="O valor em **fahrenheit** para conversão em Celsius")]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "Retorna o valor em Celsius")]
+        public IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get",
+            Route = "conversao-fahrenheit-para-celsius/{fahrenheit}")]
+            HttpRequest req, double fahrenheit)
+        {
+            _logger.LogInformation($"Parâmetro recebido: {fahrenheit}", fahrenheit);
 
-        string responseMessage = $"O valor em fahrenheit {fahrenheit} em celsius é {valorEmCelsius:F2}";
+            var valorEmCelsius = (fahrenheit - 32) * 5 / 9;
 
-        _logger.LogInformation($"Conversão efetuada. Resultado: {valorEmCelsius:F2}ºC");
+            string responseMessage = $"O valor em fahrenheit {fahrenheit} em celsius é {valorEmCelsius:F2}";
 
-        return new OkObjectResult(responseMessage);
+            _logger.LogInformation($"Conversão efetuada. Resultado: {valorEmCelsius:F2}ºC");
+
+            return new OkObjectResult(responseMessage);
+        }
     }
 }
 ```
