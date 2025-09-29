@@ -6,7 +6,9 @@ local.settings.json
 
 # Azurite local storage
 .azurite
-_azurite_db*
+__*
+AzuriteConfig
+
 
 # User-specific files
 *.suo
