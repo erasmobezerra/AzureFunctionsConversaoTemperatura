@@ -17,7 +17,7 @@ namespace ConversaoTemperatura
             _logger = logger;
         }
 
-        [Function("ConversaoTemperatura")]
+        [Function("FunctionFahrenheitParaCelsius")]
         [OpenApiOperation(operationId: "Run", tags: new[] { "Conversão" })]
         [OpenApiParameter(name: "fahrenheit", In = ParameterLocation.Path, Required = true, Type = typeof(double), Description = "O valor em **fahrenheit** para conversão em Celsius")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "Retorna o valor em Celsius")]
