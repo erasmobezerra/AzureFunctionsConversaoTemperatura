@@ -1,9 +1,3 @@
-**Azure Functions é como mágica na nuvem: você escreve o código, e a Microsoft cuida do resto. Ideal para quem quer agilidade, economia e foco no que realmente importa: resolver problemas.**
-
-Aqui vai uma explicação didática e envolvente para você postar no LinkedIn:
-
----
-
 🚀 **O que é Azure Functions?**  
 Imagine poder escrever apenas o *código da solução* e esquecer toda a dor de cabeça com servidores, infraestrutura ou escalabilidade. Isso é Azure Functions: uma plataforma *serverless* da Microsoft que executa seu código sob demanda, em resposta a eventos como requisições HTTP, mensagens em filas, alterações em banco de dados e muito mais.
 
@@ -46,4 +40,3 @@ Fontes:
 [Explorando Azure Functions no LinkedIn](https://www.linkedin.com/pulse/explorando-azure-functions-conceitos-desenvolvimento-e-j%C3%BAnior-sjnif)  
 [Microsoft Learn – Introdução ao Azure Functions](https://learn.microsoft.com/pt-br/azure/azure-functions/functions-get-started)
 
-Se quiser, posso te ajudar a adaptar esse texto para um carrossel ou vídeo também!
