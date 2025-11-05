@@ -1,10 +1,18 @@
 # 🌡️ Conversão de Temperatura com Azure Functions
 
-Este projeto demonstra como criar uma Azure Function do tipo **HTTP Trigger** com nível de segurança **Anonymous**, utilizando o modelo **in-process** e suporte à documentação via **OpenAPI/Swagger**.
+Este projeto foi desenvolvido no curso da DIO: "Introdução a Deploy e Azure Functions" e demonstra como criar uma Azure Function do tipo **HTTP Trigger** com nível de segurança **Anonymous**, utilizando o modelo **in-process** e suporte à documentação via **OpenAPI/Swagger**.
 
 ---
 
-## 🚀 Etapas para Configuração
+## 📦 Requisitos
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/)
+- [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local)
+- [Node.js + npm](https://nodejs.org/) (para Azurite)
+
+---
+
+## 🚀 Para utilizar a aplicação, siga os passos recomendados abaixo
 
 ### 1. Clone o projeto
 
@@ -101,13 +109,16 @@ O valor em fahrenheit 98.6 em celsius é 37.00
 
 ---
 
-## 📦 Requisitos
+## 🤝 Como contribuir
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/)
-- [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local)
-- [Node.js + npm](https://nodejs.org/) (para Azurite)
+1. Crie uma branch com nome descritivo: `feature/minha-mudanca`.  
+2. Faça commits pequenos e claros.  
+3. Abra Pull Request descrevendo o que foi alterado e por quê.  
 
 ---
-https://learn.microsoft.com/pt-br/azure/azure-functions/openapi-apim-integrate-visual-studio?tabs=isolated-process
 
+🙏 Agradeço profundamente à **Digital Innovation One** por proporcionar este aprendizado gratuito e de qualidade. Um reconhecimento especial ao professor **[Leonardo Buta](https://www.linkedin.com/in/leonardo-buta/)** pela excelente didática e orientação durante todo o processo.
 
+<div align="center">
+  <p>⭐ Se este projeto foi útil para você, considere dar uma estrela!</p>
+</div>
