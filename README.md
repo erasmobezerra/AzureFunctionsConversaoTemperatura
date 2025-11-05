@@ -6,74 +6,19 @@ Este projeto demonstra como criar uma Azure Function do tipo **HTTP Trigger** co
 
 ## 🚀 Etapas para Configuração
 
-### 1. Criar o Projeto Azure Function
-
-Crie um novo projeto do tipo Azure Function com gatilho HTTP:
+### 1. Clone o projeto
 
 ```bash
-func init ConversaoTemperatura --worker-runtime dotnet
-func new --name ConversaoTemperatura --template "HTTP trigger" --authlevel "Anonymous"
-```
-
-> Ou crie diretamente pelo Visual Studio selecionando o template **Azure Functions** com gatilho HTTP e nível de autorização **Anonymous**.
-
----
-
-### 2. Instalar o Pacote OpenAPI
-
-Para habilitar a documentação Swagger/OpenAPI, instale o pacote:
-
-```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.OpenApi
+git clone https://github.com/erasmobezerra/AzureFunctionsConversaoTemperatura.git
+cd ./AzureFunctionsConversaoTemperatura
 ```
 
 ---
 
-### 3. Substituir o Código da Função
+### 2. Restaure os pacotes
 
-Cole o seguinte código na classe `ConversaoTemperatura.cs`:
-
-```csharp
-using System.Net;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-
-namespace ConversaoTemperatura
-{
-    public class FunctionFahrenheitParaCelsius
-    {
-        private readonly ILogger<FunctionFahrenheitParaCelsius> _logger;
-
-        public FunctionFahrenheitParaCelsius(ILogger<FunctionFahrenheitParaCelsius> logger)
-        {
-            _logger = logger;
-        }
-
-        [Function("ConversaoTemperatura")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "Conversão" })]
-        [OpenApiParameter(name: "fahrenheit", In = ParameterLocation.Path, Required = true, Type = typeof(double), Description ="O valor em **fahrenheit** para conversão em Celsius")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "Retorna o valor em Celsius")]
-        public IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get",
-            Route = "conversao-fahrenheit-para-celsius/{fahrenheit}")]
-            HttpRequest req, double fahrenheit)
-        {
-            _logger.LogInformation($"Parâmetro recebido: {fahrenheit}", fahrenheit);
-
-            var valorEmCelsius = (fahrenheit - 32) * 5 / 9;
-
-            string responseMessage = $"O valor em fahrenheit {fahrenheit} em celsius é {valorEmCelsius:F2}";
-
-            _logger.LogInformation($"Conversão efetuada. Resultado: {valorEmCelsius:F2}ºC");
-
-            return new OkObjectResult(responseMessage);
-        }
-    }
-}
+```bash
+dotnet restore
 ```
 
 ---
@@ -108,15 +53,20 @@ azurite
 
 ---
 
-## ▶️ Executar o Projeto
+## ▶️ Construe e Execute o Projeto
 
 Pressione **F5** no Visual Studio ou execute:
 
 ```bash
+dotnet build
 func start
 ```
 
-Ao iniciar, o runtime exibirá os endpoints da função e da documentação Swagger.
+Ao iniciar, o runtime exibirá os endpoints da função e da documentação Swagger como no exemplo abaixo:
+
+![alt text](image.png)
+
+![alt text](image-1.png)
 
 ---
 
