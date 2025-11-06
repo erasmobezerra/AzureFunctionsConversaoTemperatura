@@ -37,7 +37,7 @@ dotnet restore
 ```
 
 ### 3. Configurar `local.settings.json`
-Inclua em "AzureWebJobsStorage" o seguinte valor: "UseDevelopmentStorage=true":
+Na raiz do projeto crie um arquivo  'local.settings.json' e inclua o json abaixo:
 ```json
 {
   "IsEncrypted": false,
@@ -47,6 +47,10 @@ Inclua em "AzureWebJobsStorage" o seguinte valor: "UseDevelopmentStorage=true":
   }
 }
 ```
+Este arquivo configura a Azure Function localmente durante o desenvolvimento.
+- "IsEncrypted": false -> Indica que o arquivo não está criptografado.
+- "UseDevelopmentStorage=true" -> significa que a função usará o emulador de armazenamento local (como o Azurite).
+- "dotnet-isolated" indica que está usando o modelo .NET Isolated Worker Process, que separa o host do Azure Functions do processo da aplicação.
 
 ### 4. Instalar Azurite
 
