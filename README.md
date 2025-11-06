@@ -1,6 +1,7 @@
 # 🌡️ Conversão de Temperatura com Azure Functions
 
 Este projeto foi desenvolvido no curso da DIO: "Introdução a Deploy e Azure Functions" e demonstra como criar uma Azure Function do tipo **HTTP Trigger** com nível de segurança **Anonymous**, utilizando o modelo **in-process** e suporte à documentação via **OpenAPI/Swagger**.
+Sobre Azure Functions e seus tipos, [clique aqui para saber mais](https://github.com/erasmobezerra/AzureFunctionsConversaoTemperatura/blob/main/Resumo.md) 
 
 ## 🏗️ Estrutura do projeto
 
