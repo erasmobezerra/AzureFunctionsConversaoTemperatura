@@ -37,7 +37,7 @@ dotnet restore
 ```
 
 ### 3. Configurar `local.settings.json`
-
+Inclua em "AzureWebJobsStorage" o seguinte valor: "UseDevelopmentStorage=true":
 ```json
 {
   "IsEncrypted": false,
