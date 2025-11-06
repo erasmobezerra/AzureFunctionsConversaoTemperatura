@@ -62,20 +62,24 @@ npm install -g azurite
 azurite
 ```
 
-No terminal será exibido os endpoints das functions:
+No terminal será exibido algo parecido:
 
-![alt text](image.png)
+![alt text](image-2.png)
 
 ---
 
 ## 6. Construe e Execute o Projeto
 
-Pressione **F5** no Visual Studio ou execute:
+Com o azurite em execução no Visual Studio Code, pressione **F5** ou execute em outro terminal:
 
 ```bash
 dotnet build
 func start
 ```
+
+No terminal serão exibidos os endpoindt das functions:
+
+![alt text](image.png)
 
 ---
 
