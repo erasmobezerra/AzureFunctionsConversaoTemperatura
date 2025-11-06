@@ -29,25 +29,7 @@ cd ./AzureFunctionsConversaoTemperatura
 dotnet restore
 ```
 
----
-
-## 🧪 Teste Local com Azurite
-
-Para evitar custos com recursos do Azure, você pode simular uma conta de armazenamento local com o **Azurite**:
-
-### Instalar Azurite
-
-```bash
-npm install -g azurite
-```
-
-### Executar Azurite
-
-```bash
-azurite
-```
-
-### Configurar `local.settings.json`
+### 3. Configurar `local.settings.json`
 
 ```json
 {
@@ -59,9 +41,27 @@ azurite
 }
 ```
 
+### 4. Instalar Azurite
+
+Para evitar custos com recursos do Azure, você pode simular uma conta de armazenamento local com o **Azurite**:
+
+```bash
+npm install -g azurite
+```
+
+### 5. Executar Azurite
+
+```bash
+azurite
+```
+
+No terminal será exibido os endpoints das functions:
+
+![alt text](image.png)
+
 ---
 
-## ▶️ Construe e Execute o Projeto
+## 6. Construe e Execute o Projeto
 
 Pressione **F5** no Visual Studio ou execute:
 
@@ -70,15 +70,9 @@ dotnet build
 func start
 ```
 
-Ao iniciar, o runtime exibirá os endpoints da função e da documentação Swagger como no exemplo abaixo:
-
-![alt text](image.png)
-
-![alt text](image-1.png)
-
 ---
 
-## 🌐 Acessar Swagger UI
+### 7. Acessar  a documentação com Swagger UI
 
 Abra o navegador e acesse:
 
@@ -86,28 +80,28 @@ Abra o navegador e acesse:
 http://localhost:7071/api/swagger/ui
 ```
 
-Você verá uma interface gerada automaticamente com base nas definições OpenAPI da função.
+Você verá uma interface gerada automaticamente com base nas definições OpenAPI da função. Nela você poderá relaizar os testes das functions de conversão de temperatura!
+
+![alt text](image-1.png)
 
 ---
 
-## 🧪 Testar a Conversão
+## 🚀 Passo a passo para o Deploy da sua Azure Function
 
-1. Na Swagger UI, selecione:
-   ```
-   GET > conversao-fahrenheit-para-celsius/{fahrenheit}
-   ```
+1. Acesse sua conta na Azure e clique no serviço "Aplicativo de Funções".
 
-2. Insira um valor de temperatura em Fahrenheit (ex: `98.6`).
+2. Clique em Criar. Selecione a opção de hospedagem "Consumo".
 
-3. Clique em **Execute**.
+3. Na próxima página informe ou crie um Grupo de Recursos e crie um nome para o Aplicativo de Funções
 
-4. O resultado da conversão será exibido abaixo, como:
+4. Em Sistema Operacional informe "Windows"; Em Pilha de runtime informe ".NET"; Verão informe "Versão 8 (LTS)" e Região "Brazil South". Depois clique em Revisar + Criar
 
-```
-O valor em fahrenheit 98.6 em celsius é 37.00
-```
+5. Para o Deploy, utilizei a extensão do Visual Studio Code para subir a minha aplicação para o Aplicativo de Função recém criado na Azure.
 
----
+6. Finalizado o deploy, Acesse o painel principal do seu Aplicativo de Função criado na azure e clique no Domínio Padrão para ser abrir o endereço no neu navegador padrão.
+
+7. Acrescente ao endereço gerado: /api/swagger/ui para ter acesso a documentação Swagger.
+
 
 ## 🤝 Como contribuir
 
