@@ -2,17 +2,24 @@
 
 Este projeto foi desenvolvido no curso da DIO: "Introdução a Deploy e Azure Functions" e demonstra como criar uma Azure Function do tipo **HTTP Trigger** com nível de segurança **Anonymous**, utilizando o modelo **in-process** e suporte à documentação via **OpenAPI/Swagger**.
 
----
+## 🏗️ Estrutura do projeto
 
-## 📦 Requisitos
+- `FunctionCelsiusParaFahrenheit.cs` — Function HTTP Trigger que converte temperatura de Celsius para Fahrenheit.
+- `FunctionFahrenheitParaCelsius.cs` — Function HTTP Trigger que converte temperatura de Fahrenheit para Celsius.
+- `Program.cs` — Configuração do host da Function (startup, injeção de dependência e registro do OpenAPI/Swagger).
+- `azconversaotemperatura.csproj` — arquivo de projeto .NET (referências, target framework e configurações de build).
+- `local.settings.json` — configurações locais para execução e emulação (connection strings, `FUNCTIONS_WORKER_RUNTIME`).
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/)
-- [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local)
-- [Node.js + npm](https://nodejs.org/) (para Azurite)
 
----
+## 🛠️ Tecnologias Utilizadas
 
-## 🚀 Para utilizar a aplicação, siga os passos recomendados abaixo
+- **.NET 8.0**
+- **Azure Functions v4**
+- **Azure Functions Core Tools**
+- **OpenAPI/Swagger** para documentação
+- **Azurite** para emulação do Azure Storage
+
+## 🚀 Testando a Aplicação
 
 ### 1. Clone o projeto
 
@@ -101,7 +108,6 @@ Você verá uma interface gerada automaticamente com base nas definições OpenA
 6. Finalizado o deploy, Acesse o painel principal do seu Aplicativo de Função criado na azure e clique no Domínio Padrão para ser abrir o endereço no neu navegador padrão.
 
 7. Acrescente ao endereço gerado: /api/swagger/ui para ter acesso a documentação Swagger.
-
 
 ## 🤝 Como contribuir
 
